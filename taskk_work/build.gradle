@@ -33,6 +33,10 @@ android {
 dependencies {
     api "androidx.work:work-runtime:2.3.0-beta01"
     api "androidx.work:work-runtime-ktx:2.3.0-beta01"
+    
+    implementation project(':SwiftKit:basick')
+
+    //////////////////////////////////////////////////////////////////
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

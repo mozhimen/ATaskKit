@@ -24,3 +24,7 @@ rootProject.name = "ATaskKit"
 include ':app'
 include ':taskk_work'
 include ':taskk_work_rxjava2'
+//SwiftKit
+include ':SwiftKit'
+project(':SwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\SwiftKit")
+include ':SwiftKit:basick'
