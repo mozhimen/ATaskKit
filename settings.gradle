@@ -22,7 +22,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "ATaskKit"
 include ':app'
-include ':taskk_workmanager'
-include ':taskk_rxjava2'
-include ':taskk_autodispose'
-include ':taskk_rxrelay2'
+include ':taskk_work'
+include ':taskk_work_rxjava2'
