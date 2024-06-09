@@ -22,6 +22,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "ATaskKit"
 include ':app'
+include ':taskk_chain'
 include ':taskk_work'
 include ':taskk_work_rxjava2'
 //SwiftKit
