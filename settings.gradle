@@ -24,7 +24,11 @@ rootProject.name = "ATaskKit"
 include ':app'
 include ':taskk_chain'
 include ':taskk_work'
-include ':taskk_work_rxjava2'
+//ALibKit_Jetpack
+include ':ALibKit_Jetpack'
+project(':ALibKit_Jetpack').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Jetpack")
+include ':ALibKit_Jetpack:work_rxjava2'
+include ':ALibKit_Jetpack:work'
 //SwiftKit
 include ':SwiftKit'
 project(':SwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\SwiftKit")
