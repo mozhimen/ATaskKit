@@ -24,6 +24,8 @@ rootProject.name = "ATaskKit"
 include ':app'
 include ':taskk_chain'
 include ':taskk_work'
+include ':taskk_executor'
+include ':taskk_executor_test'
 //ALibKit_Jetpack
 include ':ALibKit_Jetpack'
 project(':ALibKit_Jetpack').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Jetpack")
@@ -33,9 +35,11 @@ include ':ALibKit_Jetpack:work'
 include ':SwiftKit'
 project(':SwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\SwiftKit")
 include ':SwiftKit:basick'
+include ':SwiftKit:mvvmk'
+include ':SwiftKit:xmlk'
 //KUtilKit
 include ':KUtilKit'
 project(':KUtilKit').projectDir = new File("D:\\WorkSpace\\GitHub\\KUtilKit")
 include ':KUtilKit:utilk_android'
 include ':KUtilKit:utilk_kotlin'
-include ':taskk_executor'
+

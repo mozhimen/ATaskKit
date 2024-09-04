@@ -5,8 +5,8 @@ import com.mozhimen.taskk.chain.bases.BaseChainTask
 import com.mozhimen.taskk.chain.commons.IChain
 import com.mozhimen.taskk.chain.helpers.ChainRuntime
 import com.mozhimen.taskk.chain.temps.ChainTaskGroup
-import com.mozhimen.basick.utilk.android.os.UtilKLooper
-import com.mozhimen.basick.utilk.java.lang.UtilKThread
+import com.mozhimen.kotlin.utilk.android.os.UtilKLooper
+import com.mozhimen.kotlin.utilk.java.lang.UtilKThread
 
 /**
  * @ClassName TaskKMgr
