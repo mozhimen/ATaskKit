@@ -31,7 +31,11 @@ android {
 }
 
 dependencies {
-    implementation project(':KUtilKit:utilk_android')
+    if (rootProject.name == "KUtilKit") {
+        implementation project(':utilk_android')
+    } else{
+        implementation project(':KUtilKit:utilk_android')
+    }
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
