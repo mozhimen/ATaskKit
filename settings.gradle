@@ -35,7 +35,7 @@ include ':ALibKit_Jetpack:work'
 include ':SwiftKit'
 project(':SwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\SwiftKit")
 include ':SwiftKit:basick'
-include ':SwiftKit:mvvmk'
+include ':SwiftKit:bindk'
 include ':SwiftKit:xmlk'
 //KUtilKit
 include ':KUtilKit'
