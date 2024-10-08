@@ -1,12 +1,12 @@
 package com.mozhimen.taskk.chain.helpers
 
-import com.mozhimen.basick.BuildConfig
 import com.mozhimen.taskk.chain.temps.ChainTaskGroup
 import com.mozhimen.taskk.chain.bases.BaseChainTask
 import com.mozhimen.taskk.chain.annors.AChainState
 import com.mozhimen.taskk.chain.commons.IChainListener
 import com.mozhimen.taskk.chain.helpers.ChainRuntime.getTaskRuntimeInfo
 import com.mozhimen.kotlin.elemk.cons.CMsg
+import com.mozhimen.kotlin.utilk.BuildConfig
 import com.mozhimen.kotlin.utilk.android.util.d
 import com.mozhimen.kotlin.utilk.android.util.w
 import com.mozhimen.kotlin.utilk.commons.IUtilK

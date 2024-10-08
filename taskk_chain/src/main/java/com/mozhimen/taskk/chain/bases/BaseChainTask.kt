@@ -198,7 +198,7 @@ abstract class BaseChainTask @JvmOverloads constructor(
     private fun toRunning() {
         state = AChainState.RUNNING
         ChainRuntime.setTaskStateInfo(this)
-        ChainRuntime.setThreadName(this, UtilKThread.getName_ofCur())
+        ChainRuntime.setThreadName(this, UtilKThread.getName_ofCurrent())
         for (listener in _chainkListeners) {
             listener.onRunning(this)
         }

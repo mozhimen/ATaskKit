@@ -3,7 +3,7 @@ package com.mozhimen.taskk.executor.test
 import android.os.Bundle
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import androidx.lifecycle.lifecycleScope
-import com.mozhimen.bindk.bases.activity.databinding.BaseActivityVDB
+import com.mozhimen.bindk.bases.viewdatabinding.activity.BaseActivityVDB
 import com.mozhimen.taskk.executor.TaskKExecutor
 import com.mozhimen.kotlin.utilk.android.util.e
 import com.mozhimen.kotlin.utilk.java.lang.UtilKThread
@@ -47,12 +47,12 @@ class TaskKExecutorActivity : BaseActivityVDB<ActivityTaskkExecutorBinding>() {
         vdb.taskkExecutorBtnAsync.setOnClickListener {
             TaskKExecutor.execute(TAG, runnable = object : TaskKExecutor.ExecutorKCallable<String>() {
                 override fun onBackground(): String {
-                    UtilKLogWrapper.e(TAG, "onBackground: 当前线程: ${UtilKThread.get_ofCur()}")
+                    UtilKLogWrapper.e(TAG, "onBackground: 当前线程: ${UtilKThread.get_ofCurrent()}")
                     return "我是异步任务的结果"
                 }
 
                 override fun onCompleted(t: String?) {
-                    UtilKLogWrapper.e(TAG, "onCompleted: 当前线程是: ${UtilKThread.getName_ofCur()}")
+                    UtilKLogWrapper.e(TAG, "onCompleted: 当前线程是: ${UtilKThread.getName_ofCurrent()}")
                     UtilKLogWrapper.e(TAG, "onCompleted: 任务结果是: $t")
                 }
             })
