@@ -1,18 +1,20 @@
 plugins {
-    id 'com.android.library'
+    id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
 }
 
 android {
-    namespace 'com.mozhimen.taskk.chain'
+    namespace 'com.mozhimen.taskk.executor.test'
     compileSdk 34
 
     defaultConfig {
-        minSdk 19
-        multiDexEnabled true
+        applicationId "com.mozhimen.taskk.executor.test"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -28,12 +30,15 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures{
+        dataBinding true
+    }
 }
 
 dependencies {
-    implementation project(':KUtilKit:utilk_android')
-    implementation project(project.path.replace(project.name,'')+':taskk_executor')
-
+    implementation project(':ASwiftKit:bindk')
+    implementation project(':ASwiftKit:xmlk')
+    implementation project(':executor')
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'

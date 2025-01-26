@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.mozhimen.taskk.work'
+    namespace 'com.mozhimen.taskk.chain'
     compileSdk 34
 
     defaultConfig {
@@ -12,13 +12,13 @@ android {
         multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
+//        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
@@ -31,10 +31,8 @@ android {
 }
 
 dependencies {
-    api project(':ALibKit_Jetpack:work')
-    implementation project(':SwiftKit:basick')
-
-    //////////////////////////////////////////////////////////////////
+    implementation project(':KUtilKit:android')
+    implementation project(project.path.replace(project.name,'')+':executor')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
