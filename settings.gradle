@@ -49,7 +49,7 @@ include ':ALibKit_Jetpack:annotation'
 include ':ASwiftKit'
 project(':ASwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ASwiftKit")
 include ':ASwiftKit:basick'
-include ':ASwiftKit:bindk'
+include ':ASwiftKit:uik:databinding'
 include ':ASwiftKit:xmlk'
 //KUtilKit
 include ':KUtilKit'

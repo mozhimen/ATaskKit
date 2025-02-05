@@ -3,7 +3,7 @@ package com.mozhimen.taskk.executor.test
 import android.os.Bundle
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import androidx.lifecycle.lifecycleScope
-import com.mozhimen.bindk.bases.viewdatabinding.activity.BaseActivityVDB
+import com.mozhimen.uik.databinding.bases.viewdatabinding.activity.BaseActivityVDB
 import com.mozhimen.taskk.executor.TaskKExecutor
 import com.mozhimen.kotlin.utilk.android.util.e
 import com.mozhimen.kotlin.utilk.java.lang.UtilKThread
