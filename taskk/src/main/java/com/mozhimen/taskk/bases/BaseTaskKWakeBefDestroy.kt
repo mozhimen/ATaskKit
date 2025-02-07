@@ -10,7 +10,7 @@ import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle
 @OApiCall_BindViewLifecycle
 @OApiCall_BindLifecycle
 @OApiInit_ByLazy
-abstract class BaseWakeBefDestroyTaskK : BaseWakeBefDestroyLifecycleObserver() {
+abstract class BaseTaskKWakeBefDestroy : BaseWakeBefDestroyLifecycleObserver() {
 
     abstract fun isActive(): Boolean
 

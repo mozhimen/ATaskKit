@@ -8,7 +8,7 @@ import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
 
 @OApiCall_BindLifecycle
 @OApiInit_ByLazy
-abstract class BaseWakeBefPauseTaskK : BaseWakeBefPauseLifecycleObserver() {
+abstract class BaseTaskKWakeBefPause : BaseWakeBefPauseLifecycleObserver() {
 
     abstract fun isActive(): Boolean
 

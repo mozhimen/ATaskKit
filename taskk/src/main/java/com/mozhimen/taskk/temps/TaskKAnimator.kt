@@ -6,7 +6,7 @@ import android.view.View
 import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle
-import com.mozhimen.taskk.bases.BaseWakeBefDestroyTaskK
+import com.mozhimen.taskk.bases.BaseTaskKWakeBefDestroy
 import com.mozhimen.kotlin.utilk.android.animation.UtilKAnimatorWrapper
 import com.mozhimen.kotlin.utilk.wrapper.UtilKAnim
 import java.util.concurrent.ConcurrentHashMap
@@ -21,7 +21,7 @@ import java.util.concurrent.ConcurrentHashMap
 @OApiCall_BindViewLifecycle
 @OApiCall_BindLifecycle
 @OApiInit_ByLazy
-class TaskKAnimator : BaseWakeBefDestroyTaskK() {
+class TaskKAnimator : BaseTaskKWakeBefDestroy() {
     private val _viewAnims: ConcurrentHashMap<View, Animator> = ConcurrentHashMap()
 
     ///////////////////////////////////////////////////////////////////

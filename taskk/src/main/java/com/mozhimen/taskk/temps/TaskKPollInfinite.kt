@@ -4,7 +4,7 @@ import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
 import com.mozhimen.kotlin.elemk.commons.ISuspend_Listener
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle
-import com.mozhimen.taskk.bases.BaseWakeBefDestroyTaskK
+import com.mozhimen.taskk.bases.BaseTaskKWakeBefDestroy
 import com.mozhimen.kotlin.utilk.android.util.e
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
@@ -12,7 +12,7 @@ import kotlin.coroutines.CoroutineContext
 @OApiCall_BindViewLifecycle
 @OApiCall_BindLifecycle
 @OApiInit_ByLazy
-open class TaskKPollInfinite : BaseWakeBefDestroyTaskK() {
+open class TaskKPollInfinite : BaseTaskKWakeBefDestroy() {
     private var _pollingScope: CoroutineScope? = null
 
     override fun isActive(): Boolean =
