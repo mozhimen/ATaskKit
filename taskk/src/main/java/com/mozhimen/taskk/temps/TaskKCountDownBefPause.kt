@@ -3,7 +3,7 @@ package com.mozhimen.taskk.temps
 import android.os.CountDownTimer
 import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
-import com.mozhimen.taskk.bases.BaseWakeBefPauseTaskK
+import com.mozhimen.taskk.bases.BaseTaskKWakeBefPause
 
 /**
  * @ClassName UtilKCountDown
@@ -24,7 +24,7 @@ open class BaseTaskKCountDownCallback : ITaskKCountDownListener {
 
 @OApiCall_BindLifecycle
 @OApiInit_ByLazy
-class TaskKCountDownBefPause : BaseWakeBefPauseTaskK() {
+class TaskKCountDownBefPause : BaseTaskKWakeBefPause() {
 
     private var _taskKCountDownListener: ITaskKCountDownListener? = null
     private var _countDownTimer: CountDownTimer? = null

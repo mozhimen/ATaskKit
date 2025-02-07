@@ -4,8 +4,7 @@ import com.mozhimen.kotlin.elemk.commons.I_Listener
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle
 import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
-import com.mozhimen.taskk.bases.BaseWakeBefDestroyTaskK
-import com.mozhimen.kotlin.utilk.wrapper.UtilKApp
+import com.mozhimen.taskk.bases.BaseTaskKWakeBefDestroy
 import com.mozhimen.kotlin.utilk.android.widget.showToast
 
 /**
@@ -18,7 +17,7 @@ import com.mozhimen.kotlin.utilk.android.widget.showToast
 @OApiCall_BindViewLifecycle
 @OApiCall_BindLifecycle
 @OApiInit_ByLazy
-class TaskKBackPressedExit : BaseWakeBefDestroyTaskK() {
+class TaskKBackPressedExit : BaseTaskKWakeBefDestroy() {
     private var _exitWaitTime = 2000L//退出App判断时间
     private var _firstClickTime = 0L//用来记录第一次点击的时间
     private var _strTip = ""

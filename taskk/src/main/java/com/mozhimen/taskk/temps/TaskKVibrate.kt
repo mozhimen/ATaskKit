@@ -7,7 +7,7 @@ import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
 import com.mozhimen.kotlin.lintk.optins.permission.OPermission_VIBRATE
 import com.mozhimen.kotlin.elemk.android.cons.CPermission
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle
-import com.mozhimen.taskk.bases.BaseWakeBefDestroyTaskK
+import com.mozhimen.taskk.bases.BaseTaskKWakeBefDestroy
 import com.mozhimen.kotlin.utilk.android.os.UtilKVibrator
 
 /**
@@ -21,7 +21,7 @@ import com.mozhimen.kotlin.utilk.android.os.UtilKVibrator
 @OApiCall_BindLifecycle
 @OApiInit_ByLazy
 @OPermission_VIBRATE
-class TaskKVibrate : BaseWakeBefDestroyTaskK() {
+class TaskKVibrate : BaseTaskKWakeBefDestroy() {
 
     private var _vibrator: Vibrator? = null
 

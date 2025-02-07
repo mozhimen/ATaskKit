@@ -4,8 +4,7 @@ import android.os.CountDownTimer
 import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle
-import com.mozhimen.taskk.bases.BaseWakeBefDestroyTaskK
-import com.mozhimen.taskk.bases.BaseWakeBefPauseTaskK
+import com.mozhimen.taskk.bases.BaseTaskKWakeBefDestroy
 
 /**
  * @ClassName UtilKCountDown
@@ -17,7 +16,7 @@ import com.mozhimen.taskk.bases.BaseWakeBefPauseTaskK
 @OApiCall_BindViewLifecycle
 @OApiCall_BindLifecycle
 @OApiInit_ByLazy
-class TaskKCountDownBefDestroy : BaseWakeBefDestroyTaskK() {
+class TaskKCountDownBefDestroy : BaseTaskKWakeBefDestroy() {
 
     private var _taskKCountDownListener: ITaskKCountDownListener? = null
     private var _countDownTimer: CountDownTimer? = null
