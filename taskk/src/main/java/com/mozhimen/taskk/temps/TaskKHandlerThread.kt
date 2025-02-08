@@ -7,7 +7,7 @@ import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle
 import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
 import com.mozhimen.kotlin.utilk.android.os.UtilKHandler
 import com.mozhimen.kotlin.utilk.android.os.UtilKHandlerThread
-import com.mozhimen.taskk.bases.BaseWakeBefDestroyTaskK
+import com.mozhimen.taskk.bases.BaseTaskKWakeBefDestroy
 
 /**
  * @ClassName TaskKHandlerThread
@@ -19,7 +19,7 @@ import com.mozhimen.taskk.bases.BaseWakeBefDestroyTaskK
 @OApiInit_ByLazy
 @OApiCall_BindLifecycle
 @OApiCall_BindViewLifecycle
-class TaskKHandlerThread : BaseWakeBefDestroyTaskK() {
+class TaskKHandlerThread : /*BaseWakeBefDestroyTaskK*/BaseTaskKWakeBefDestroy() {
     private var _handlerThread: HandlerThread? = null
     private var _handler: Handler? = null
 

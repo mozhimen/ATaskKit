@@ -42,7 +42,7 @@ class TaskKAnimator : BaseTaskKWakeBefDestroy() {
     override fun cancel() {
         _viewAnims.forEach {
             (it.value as ValueAnimator).removeAllUpdateListeners()
-            UtilKAnimatorWrapper.cancel_removeAllListeners(it.value)
+            UtilKAnimatorWrapper.cancel_removeAll_AllUpdateListeners(it.value)
             UtilKAnim.stopAnim(it.key)
         }
         _viewAnims.clear()
