@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace 'com.mozhimen.taskk.executor.test'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.mozhimen.taskk.executor.test"
