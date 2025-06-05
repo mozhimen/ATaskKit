@@ -5,7 +5,7 @@ import android.os.Looper
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import androidx.annotation.IntRange
 import com.mozhimen.taskk.executor.commons.ITaskKExecutor
-import com.mozhimen.kotlin.elemk.java.lang.PriorityRunnable
+import com.mozhimen.kotlin.elemk.java.lang.impls.PriorityRunnable
 import com.mozhimen.kotlin.elemk.kotlin.cons.CSuppress
 import com.mozhimen.kotlin.utilk.bases.BaseUtilK
 import kotlinx.coroutines.ExecutorCoroutineDispatcher
