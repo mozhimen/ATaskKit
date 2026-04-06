@@ -2,8 +2,8 @@ package com.mozhimen.taskk.test
 
 import android.os.Bundle
 import com.mozhimen.uik.databinding.bases.viewdatabinding.activity.BaseActivityVDB
-import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
-import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiInit_ByLazy
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindLifecycle
 import com.mozhimen.kotlin.utilk.android.widget.showToast
 import com.mozhimen.taskk.temps.TaskKPoll
 import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone

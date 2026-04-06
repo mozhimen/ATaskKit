@@ -2,11 +2,11 @@ package com.mozhimen.taskk.temps
 
 import android.os.Vibrator
 import androidx.annotation.RequiresPermission
-import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
-import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
-import com.mozhimen.kotlin.lintk.optins.permission.OPermission_VIBRATE
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiInit_ByLazy
+import com.mozhimen.kotlin.lintk.optins.manifest.uses_permission.OUsesPermission_VIBRATE
 import com.mozhimen.kotlin.elemk.android.cons.CPermission
-import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindViewLifecycle
 import com.mozhimen.taskk.bases.BaseTaskKWakeBefDestroy
 import com.mozhimen.kotlin.utilk.android.os.UtilKVibrator
 
@@ -20,7 +20,7 @@ import com.mozhimen.kotlin.utilk.android.os.UtilKVibrator
 @OApiCall_BindViewLifecycle
 @OApiCall_BindLifecycle
 @OApiInit_ByLazy
-@OPermission_VIBRATE
+@OUsesPermission_VIBRATE
 class TaskKVibrate : BaseTaskKWakeBefDestroy() {
 
     private var _vibrator: Vibrator? = null
@@ -30,7 +30,7 @@ class TaskKVibrate : BaseTaskKWakeBefDestroy() {
      * @param duration Long
      */
     @RequiresPermission(CPermission.VIBRATE)
-    @OPermission_VIBRATE
+    @OUsesPermission_VIBRATE
     fun start(duration: Long = 200L) {
         if (isActive()) return
         if (_vibrator == null) {
@@ -47,7 +47,7 @@ class TaskKVibrate : BaseTaskKWakeBefDestroy() {
      * 停止
      */
     @RequiresPermission(CPermission.VIBRATE)
-    @OPermission_VIBRATE
+    @OUsesPermission_VIBRATE
     override fun cancel() {
         if (!isActive()) return
         _vibrator?.cancel()

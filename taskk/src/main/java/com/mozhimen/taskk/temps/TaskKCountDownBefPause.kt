@@ -1,8 +1,8 @@
 package com.mozhimen.taskk.temps
 
 import android.os.CountDownTimer
-import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
-import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiInit_ByLazy
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindLifecycle
 import com.mozhimen.taskk.bases.BaseTaskKWakeBefPause
 
 /**

@@ -3,10 +3,10 @@ package com.mozhimen.taskk.temps
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import androidx.annotation.RequiresPermission
 import com.mozhimen.kotlin.elemk.commons.ISuspendAA_Listener
-import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
-import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
-import com.mozhimen.kotlin.lintk.optins.permission.OPermission_ACCESS_COARSE_LOCATION
-import com.mozhimen.kotlin.lintk.optins.permission.OPermission_ACCESS_FINE_LOCATION
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiInit_ByLazy
+import com.mozhimen.kotlin.lintk.optins.manifest.uses_permission.OUsesPermission_ACCESS_COARSE_LOCATION
+import com.mozhimen.kotlin.lintk.optins.manifest.uses_permission.OUsesPermission_ACCESS_FINE_LOCATION
 import com.mozhimen.kotlin.elemk.android.cons.CPermission
 import com.mozhimen.kotlin.utilk.wrapper.UtilKPermission
 import com.mozhimen.kotlin.utilk.wrapper.UtilKLocation
@@ -40,8 +40,8 @@ class TaskKLocation : TaskKPollInfinite() {
      * @param task
      */
     @RequiresPermission(allOf = [CPermission.ACCESS_COARSE_LOCATION, CPermission.ACCESS_FINE_LOCATION])
-    @OPermission_ACCESS_FINE_LOCATION
-    @OPermission_ACCESS_COARSE_LOCATION
+    @OUsesPermission_ACCESS_FINE_LOCATION
+    @OUsesPermission_ACCESS_COARSE_LOCATION
     fun startLocationTask(intervalMillis: Long, minTimeMs: Long = 2000, minDistanceM: Float = 5f, task: ISuspendAA_Listener<Double>? = null) {
         if (!UtilKPermission.hasAccessLocation()) {
             UtilKLogWrapper.w(TAG, "startLocationTask: dont hasPermission")

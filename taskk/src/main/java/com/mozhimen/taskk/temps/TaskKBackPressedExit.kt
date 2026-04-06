@@ -1,9 +1,9 @@
 package com.mozhimen.taskk.temps
 
 import com.mozhimen.kotlin.elemk.commons.I_Listener
-import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
-import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle
-import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindViewLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiInit_ByLazy
 import com.mozhimen.taskk.bases.BaseTaskKWakeBefDestroy
 import com.mozhimen.kotlin.utilk.android.widget.showToast
 
