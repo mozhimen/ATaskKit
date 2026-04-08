@@ -14,27 +14,27 @@ typealias ITaskKAsyncErrorListener = IA_Listener<Throwable>//(Throwable) -> Unit
 @OApiCall_BindViewLifecycle
 @OApiCall_BindLifecycle
 @OApiInit_ByLazy
-class TaskKAsync : BaseTaskKWakeBefDestroy() {
-    private val _exceptionHandler = CoroutineExceptionHandler { _, throwable ->
+open class TaskKAsync : BaseTaskKWakeBefDestroy() {
+    protected val _exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         throwable.printStackTrace()
         throwable.message?.e(TAG)
         _taskKAsyncErrorListener?.invoke(throwable)        // 发生异常时的捕获
     }
-    private var _taskKAsyncErrorListener: ITaskKAsyncErrorListener? = null
-    private var _asyncScope: CoroutineScope = CoroutineScope(Dispatchers.IO + _exceptionHandler)
+    protected var _taskKAsyncErrorListener: ITaskKAsyncErrorListener? = null
+    protected var _asyncScope: CoroutineScope = CoroutineScope(Dispatchers.IO + _exceptionHandler)
 
-    override fun isActive(): Boolean = _asyncScope.isActive
-
-    fun setErrorListener(listener: ITaskKAsyncErrorListener) {
+    open fun setErrorListener(listener: ITaskKAsyncErrorListener) {
         this._taskKAsyncErrorListener = listener
     }
 
-    fun execute(task: ISuspend_Listener) {
+    open fun execute(task: ISuspend_Listener) {
         if (isActive()) return
         _asyncScope.launch {
             task.invoke()
         }
     }
+
+    override fun isActive(): Boolean = _asyncScope.isActive
 
     override fun cancel() {
         if (!isActive()) return

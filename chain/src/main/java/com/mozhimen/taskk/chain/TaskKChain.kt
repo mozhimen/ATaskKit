@@ -7,6 +7,7 @@ import com.mozhimen.taskk.chain.helpers.ChainRuntime
 import com.mozhimen.taskk.chain.temps.ChainTaskGroup
 import com.mozhimen.kotlin.utilk.android.os.UtilKLooper
 import com.mozhimen.kotlin.utilk.java.lang.UtilKThread
+import com.mozhimen.kotlin.utilk.java.lang.UtilKThreadWrapper
 
 /**
  * @ClassName TaskKMgr
@@ -28,7 +29,7 @@ object TaskKChain : IChain {
 
     @MainThread
     override fun start(task: BaseChainTask) {
-        assert(UtilKThread.isMainThread()) { "start method must be invoke on MainThread" }
+        assert(UtilKThreadWrapper.isMainThread()) { "start method must be invoke on MainThread" }
         val startTask = if (task is ChainTaskGroup) task.startTask else task
         ChainRuntime.traversalDependencyTreeAndInit(startTask)
         startTask.start()

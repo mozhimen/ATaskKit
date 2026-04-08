@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.mozhimen.uik.databinding.bases.viewdatabinding.activity.BaseActivityVDB
 import com.mozhimen.kotlin.lintk.optins.api.OApiInit_ByLazy
 import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindViewLifecycle
 import com.mozhimen.kotlin.utilk.android.widget.showToast
 import com.mozhimen.taskk.temps.TaskKPoll
 import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
@@ -12,10 +13,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class TaskKPollActivity : BaseActivityVDB<ActivityTaskkPollBinding>() {
-    @OptIn(OApiCall_BindLifecycle::class, OApiInit_ByLazy::class)
+    @OptIn(OApiCall_BindLifecycle::class, OApiInit_ByLazy::class, OApiCall_BindViewLifecycle::class)
     private val _taskKPoll: TaskKPoll by lazy_ofNone { TaskKPoll().apply { bindLifecycle(this@TaskKPollActivity) } }
 
-    @OptIn(OApiCall_BindLifecycle::class, OApiInit_ByLazy::class)
+    @OptIn(OApiCall_BindLifecycle::class, OApiInit_ByLazy::class, OApiCall_BindViewLifecycle::class)
     override fun initView(savedInstanceState: Bundle?) {
         vdb.eventkTaskPollBtnStart.setOnClickListener {
             _taskKPoll.start(1000, 3, {

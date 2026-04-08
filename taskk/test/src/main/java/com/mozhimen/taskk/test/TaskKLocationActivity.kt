@@ -8,6 +8,7 @@ import com.mozhimen.kotlin.lintk.optins.api.OApiInit_ByLazy
 import com.mozhimen.kotlin.lintk.optins.manifest.uses_permission.OUsesPermission_ACCESS_COARSE_LOCATION
 import com.mozhimen.kotlin.lintk.optins.manifest.uses_permission.OUsesPermission_ACCESS_FINE_LOCATION
 import com.mozhimen.kotlin.elemk.android.cons.CPermission
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindViewLifecycle
 import com.mozhimen.taskk.temps.TaskKLocation
 import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import com.mozhimen.kotlin.utilk.wrapper.UtilKPermission
@@ -15,11 +16,11 @@ import com.mozhimen.permissionk.PermissionK
 import com.mozhimen.taskk.test.databinding.ActivityTaskkLocationBinding
 
 class TaskKLocationActivity : BaseActivityVDB<ActivityTaskkLocationBinding>() {
-    @OptIn(OApiInit_ByLazy::class, OApiCall_BindLifecycle::class)
+    @OptIn(OApiInit_ByLazy::class, OApiCall_BindLifecycle::class, OApiCall_BindViewLifecycle::class)
     private val _taskKLocation by lazy_ofNone { TaskKLocation().apply { bindLifecycle(this@TaskKLocationActivity) } }
 
     @SuppressLint("MissingPermission", "SetTextI18n")
-    @OptIn(OApiInit_ByLazy::class, OApiCall_BindLifecycle::class, OUsesPermission_ACCESS_FINE_LOCATION::class, OUsesPermission_ACCESS_COARSE_LOCATION::class)
+    @OptIn(OApiInit_ByLazy::class, OApiCall_BindLifecycle::class, OUsesPermission_ACCESS_FINE_LOCATION::class, OUsesPermission_ACCESS_COARSE_LOCATION::class, OApiCall_BindViewLifecycle::class)
     override fun initView(savedInstanceState: Bundle?) {
         if (UtilKPermission.isSelfGranted(arrayOf(CPermission.ACCESS_COARSE_LOCATION, CPermission.ACCESS_FINE_LOCATION)))
             _taskKLocation.startLocationTask(1000) { a1, a2 ->

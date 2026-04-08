@@ -7,8 +7,10 @@ import com.mozhimen.kotlin.lintk.optins.api.OApiInit_ByLazy
 import com.mozhimen.kotlin.lintk.optins.manifest.uses_permission.OUsesPermission_VIBRATE
 import com.mozhimen.kotlin.elemk.android.cons.CPermission
 import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindViewLifecycle
+import com.mozhimen.kotlin.utilk.android.app.UtilKApplicationWrapper
 import com.mozhimen.taskk.bases.BaseTaskKWakeBefDestroy
 import com.mozhimen.kotlin.utilk.android.os.UtilKVibrator
+import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 
 /**
  * @ClassName UtilKVibrate
@@ -21,9 +23,8 @@ import com.mozhimen.kotlin.utilk.android.os.UtilKVibrator
 @OApiCall_BindLifecycle
 @OApiInit_ByLazy
 @OUsesPermission_VIBRATE
-class TaskKVibrate : BaseTaskKWakeBefDestroy() {
-
-    private var _vibrator: Vibrator? = null
+open class TaskKVibrate : BaseTaskKWakeBefDestroy() {
+    protected var _vibrator: Vibrator? = null
 
     /**
      * 震动
@@ -31,7 +32,7 @@ class TaskKVibrate : BaseTaskKWakeBefDestroy() {
      */
     @RequiresPermission(CPermission.VIBRATE)
     @OUsesPermission_VIBRATE
-    fun start(duration: Long = 200L) {
+    open fun start(duration: Long = 200L) {
         if (isActive()) return
         if (_vibrator == null) {
             _vibrator = UtilKVibrator.get(_context)

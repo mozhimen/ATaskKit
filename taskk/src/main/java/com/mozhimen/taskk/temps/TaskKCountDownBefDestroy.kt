@@ -16,14 +16,12 @@ import com.mozhimen.taskk.bases.BaseTaskKWakeBefDestroy
 @OApiCall_BindViewLifecycle
 @OApiCall_BindLifecycle
 @OApiInit_ByLazy
-class TaskKCountDownBefDestroy : BaseTaskKWakeBefDestroy() {
+open class TaskKCountDownBefDestroy : BaseTaskKWakeBefDestroy() {
 
-    private var _taskKCountDownListener: ITaskKCountDownListener? = null
-    private var _countDownTimer: CountDownTimer? = null
+    protected var _taskKCountDownListener: ITaskKCountDownListener? = null
+    protected var _countDownTimer: CountDownTimer? = null
 
-    override fun isActive() = _countDownTimer != null
-
-    fun start(countDownMilliseconds: Long, listener: ITaskKCountDownListener? = null) {
+    open fun start(countDownMilliseconds: Long, listener: ITaskKCountDownListener? = null) {
         if (isActive()) return
         listener?.let { _taskKCountDownListener = it }
         _countDownTimer = UtilKCountDownTimer(countDownMilliseconds)
@@ -36,6 +34,8 @@ class TaskKCountDownBefDestroy : BaseTaskKWakeBefDestroy() {
         _countDownTimer?.cancel()
         _countDownTimer = null
     }
+
+    override fun isActive() = _countDownTimer != null
 
     private inner class UtilKCountDownTimer(countDownMilliseconds: Long) : CountDownTimer(countDownMilliseconds, 1000) {
         override fun onTick(millisUntilFinished: Long) {

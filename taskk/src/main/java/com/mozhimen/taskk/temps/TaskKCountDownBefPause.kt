@@ -24,19 +24,19 @@ open class BaseTaskKCountDownCallback : ITaskKCountDownListener {
 
 @OApiCall_BindLifecycle
 @OApiInit_ByLazy
-class TaskKCountDownBefPause : BaseTaskKWakeBefPause() {
+open class TaskKCountDownBefPause : BaseTaskKWakeBefPause() {
 
-    private var _taskKCountDownListener: ITaskKCountDownListener? = null
-    private var _countDownTimer: CountDownTimer? = null
+    protected var _taskKCountDownListener: ITaskKCountDownListener? = null
+    protected var _countDownTimer: CountDownTimer? = null
 
-    override fun isActive() = _countDownTimer != null
-
-    fun start(countDownMilliseconds: Long, listener: ITaskKCountDownListener? = null) {
+    open fun start(countDownMilliseconds: Long, listener: ITaskKCountDownListener? = null) {
         if (isActive()) return
         listener?.let { _taskKCountDownListener = it }
         _countDownTimer = UtilKCountDownTimer(countDownMilliseconds)
         _countDownTimer!!.start()
     }
+
+    override fun isActive() = _countDownTimer != null
 
     override fun cancel() {
         if (!isActive()) return
@@ -45,7 +45,7 @@ class TaskKCountDownBefPause : BaseTaskKWakeBefPause() {
         _countDownTimer = null
     }
 
-    private inner class UtilKCountDownTimer(countDownMilliseconds: Long) : CountDownTimer(countDownMilliseconds, 1000) {
+    protected inner class UtilKCountDownTimer(countDownMilliseconds: Long) : CountDownTimer(countDownMilliseconds, 1000) {
         override fun onTick(millisUntilFinished: Long) {
             _taskKCountDownListener?.onTick(millisUntilFinished)
         }

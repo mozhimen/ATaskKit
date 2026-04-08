@@ -8,6 +8,7 @@ import com.mozhimen.kotlin.lintk.optins.api.OApiInit_ByLazy
 import com.mozhimen.kotlin.lintk.optins.manifest.uses_permission.OUsesPermission_ACCESS_COARSE_LOCATION
 import com.mozhimen.kotlin.lintk.optins.manifest.uses_permission.OUsesPermission_ACCESS_FINE_LOCATION
 import com.mozhimen.kotlin.elemk.android.cons.CPermission
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindViewLifecycle
 import com.mozhimen.kotlin.utilk.wrapper.UtilKPermission
 import com.mozhimen.kotlin.utilk.wrapper.UtilKLocation
 import kotlinx.coroutines.Dispatchers
@@ -20,16 +21,17 @@ import kotlinx.coroutines.Dispatchers
  * @Date 2023/8/15 16:29
  * @Version 1.0
  */
+@OApiCall_BindViewLifecycle
 @OApiInit_ByLazy
 @OApiCall_BindLifecycle
-class TaskKLocation : TaskKPollInfinite() {
+open class TaskKLocation : TaskKPollInfinite() {
 
-    private var _longitude: Double = 0.0
-    private var _latitude: Double = 0.0
+    protected var _longitude: Double = 0.0
+    protected var _latitude: Double = 0.0
 
-    val longitude get() = _longitude
+    open val longitude get() = _longitude
 
-    val latitude get() = _latitude
+    open val latitude get() = _latitude
 
     /**
      * Start location task
@@ -42,7 +44,7 @@ class TaskKLocation : TaskKPollInfinite() {
     @RequiresPermission(allOf = [CPermission.ACCESS_COARSE_LOCATION, CPermission.ACCESS_FINE_LOCATION])
     @OUsesPermission_ACCESS_FINE_LOCATION
     @OUsesPermission_ACCESS_COARSE_LOCATION
-    fun startLocationTask(intervalMillis: Long, minTimeMs: Long = 2000, minDistanceM: Float = 5f, task: ISuspendAA_Listener<Double>? = null) {
+    open fun startLocationTask(intervalMillis: Long, minTimeMs: Long = 2000, minDistanceM: Float = 5f, task: ISuspendAA_Listener<Double>? = null) {
         if (!UtilKPermission.hasAccessLocation()) {
             UtilKLogWrapper.w(TAG, "startLocationTask: dont hasPermission")
             return

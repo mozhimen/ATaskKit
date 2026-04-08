@@ -31,8 +31,8 @@ android {
 }
 
 dependencies {
-    api project(':ALibKit_Jetpack:work-runtime-bom')
-    implementation project(':ASwiftKit:basick')
+    api 'com.github.mozhimen.ALibKit_Jetpack:work-runtime-bom:0.0.7'
+    implementation 'com.github.mozhimen.KUtilKit:android:0.0.3'
 
     //////////////////////////////////////////////////////////////////
 

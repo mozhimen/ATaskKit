@@ -5,16 +5,17 @@ import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.uik.databinding.bases.viewdatabinding.activity.BaseActivityVDB
 import com.mozhimen.kotlin.lintk.optins.api.OApiInit_ByLazy
 import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindLifecycle
-import com.mozhimen.taskk.temps.TaskKAsync
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindViewLifecycle
 import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
+import com.mozhimen.taskk.temps.TaskKAsync
 import com.mozhimen.taskk.test.databinding.ActivityTaskkAsyncBinding
 import kotlinx.coroutines.delay
 
 class TaskKAsyncActivity : BaseActivityVDB<ActivityTaskkAsyncBinding>() {
-    @OptIn(OApiInit_ByLazy::class, OApiCall_BindLifecycle::class)
+    @OptIn(OApiInit_ByLazy::class, OApiCall_BindLifecycle::class, OApiCall_BindViewLifecycle::class)
     private val _taskKAsync by lazy_ofNone { TaskKAsync() }
 
-    @OptIn(OApiInit_ByLazy::class, OApiCall_BindLifecycle::class)
+    @OptIn(OApiInit_ByLazy::class, OApiCall_BindLifecycle::class, OApiCall_BindViewLifecycle::class)
     override fun initView(savedInstanceState: Bundle?) {
         _taskKAsync.bindLifecycle(this)
         vdb.taskkAsyncBtn.setOnClickListener {

@@ -19,17 +19,17 @@ import com.mozhimen.taskk.bases.BaseTaskKWakeBefDestroy
 @OApiInit_ByLazy
 @OApiCall_BindLifecycle
 @OApiCall_BindViewLifecycle
-class TaskKHandlerThread : /*BaseWakeBefDestroyTaskK*/BaseTaskKWakeBefDestroy() {
-    private var _handlerThread: HandlerThread? = null
-    private var _handler: Handler? = null
+open class TaskKHandlerThread : /*BaseWakeBefDestroyTaskK*/BaseTaskKWakeBefDestroy() {
+    protected var _handlerThread: HandlerThread? = null
+    protected var _handler: Handler? = null
 
-    fun getHandlerThread(): HandlerThread? =
+    open fun getHandlerThread(): HandlerThread? =
         _handlerThread
 
-    fun getHandler(): Handler? =
+    open fun getHandler(): Handler? =
         _handler
 
-    fun start(threadName: String) {
+    open fun start(threadName: String) {
         _handlerThread = UtilKHandlerThread.get(threadName)
         _handlerThread!!.start()
         _handler = UtilKHandler.get(_handlerThread!!.looper)

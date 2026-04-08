@@ -12,10 +12,10 @@ import kotlinx.coroutines.*
 @OApiCall_BindViewLifecycle
 @OApiCall_BindLifecycle
 @OApiInit_ByLazy
-class TaskKPoll : BaseTaskKWakeBefDestroy() {
-    private var _pollingScope: CoroutineScope? = null
+open class TaskKPoll : BaseTaskKWakeBefDestroy() {
+    protected var _pollingScope: CoroutineScope? = null
     @Volatile
-    private var _time = 0
+    protected var _time = 0
 
     override fun isActive(): Boolean =
         _pollingScope != null && _pollingScope!!.isActive
@@ -26,7 +26,7 @@ class TaskKPoll : BaseTaskKWakeBefDestroy() {
      * @param times Int 循环次数
      * @param task SuspendFunction1<Int, Unit>
      */
-    fun start(intervalMillis: Long, times: Int, task: ISuspendA_Listener<Int>/*suspend (Int) -> Unit*/, onFinish: ISuspend_Listener? = null) {
+    open fun start(intervalMillis: Long, times: Int, task: ISuspendA_Listener<Int>/*suspend (Int) -> Unit*/, onFinish: ISuspend_Listener? = null) {
         if (isActive()) return
         _time = times
         val scope = CoroutineScope(Dispatchers.IO)

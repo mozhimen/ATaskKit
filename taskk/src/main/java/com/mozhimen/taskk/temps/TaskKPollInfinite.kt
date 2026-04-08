@@ -13,10 +13,7 @@ import kotlin.coroutines.CoroutineContext
 @OApiCall_BindLifecycle
 @OApiInit_ByLazy
 open class TaskKPollInfinite : BaseTaskKWakeBefDestroy() {
-    private var _pollingScope: CoroutineScope? = null
-
-    override fun isActive(): Boolean =
-        _pollingScope != null && _pollingScope!!.isActive
+    protected var _pollingScope: CoroutineScope? = null
 
     /**
      *
@@ -41,6 +38,9 @@ open class TaskKPollInfinite : BaseTaskKWakeBefDestroy() {
         }
         _pollingScope = scope
     }
+
+    override fun isActive(): Boolean =
+        _pollingScope != null && _pollingScope!!.isActive
 
     override fun cancel() {
         if (!isActive()) return

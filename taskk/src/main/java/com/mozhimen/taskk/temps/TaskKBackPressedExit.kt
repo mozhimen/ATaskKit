@@ -17,35 +17,27 @@ import com.mozhimen.kotlin.utilk.android.widget.showToast
 @OApiCall_BindViewLifecycle
 @OApiCall_BindLifecycle
 @OApiInit_ByLazy
-class TaskKBackPressedExit : BaseTaskKWakeBefDestroy() {
-    private var _exitWaitTime = 2000L//退出App判断时间
-    private var _firstClickTime = 0L//用来记录第一次点击的时间
-    private var _strTip = ""
-    private var _onExit: I_Listener? = null
+open class TaskKBackPressedExit : BaseTaskKWakeBefDestroy() {
+    protected var _exitWaitTime = 2000L//退出App判断时间
+    protected var _firstClickTime = 0L//用来记录第一次点击的时间
+    protected var _strTip = ""
+    protected var _onExit: I_Listener? = null
 
-    override fun isActive(): Boolean = _firstClickTime != 0L
-
-    override fun cancel() {
-        _firstClickTime = 0L
-    }
-
-    /////////////////////////////////////////////////////////
-
-    fun setStrTip(strTip: String): TaskKBackPressedExit {
+    open fun setStrTip(strTip: String): TaskKBackPressedExit {
         _strTip = strTip
         return this
     }
 
-    fun setExitWaitTime(time: Long): TaskKBackPressedExit {
+    open fun setExitWaitTime(time: Long): TaskKBackPressedExit {
         _exitWaitTime = time
         return this
     }
 
-    fun setOnExitListener(onExit: I_Listener) {
+    open fun setOnExitListener(onExit: I_Listener) {
         _onExit = onExit
     }
 
-    fun onBackPressed(): Boolean {
+    open fun onBackPressed(): Boolean {
         val secondClickTime = System.currentTimeMillis()
         if (secondClickTime - _firstClickTime > _exitWaitTime) {
             _firstClickTime = secondClickTime
@@ -56,5 +48,11 @@ class TaskKBackPressedExit : BaseTaskKWakeBefDestroy() {
         _onExit?.invoke()
 //        UtilKApp.exitApp()
         return true
+    }
+
+    override fun isActive(): Boolean = _firstClickTime != 0L
+
+    override fun cancel() {
+        _firstClickTime = 0L
     }
 }

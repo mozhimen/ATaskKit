@@ -33,5 +33,5 @@ android {
 }
 
 dependencies {
-    implementation project(':ASwiftKit:basick')
+    implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.3'
 }

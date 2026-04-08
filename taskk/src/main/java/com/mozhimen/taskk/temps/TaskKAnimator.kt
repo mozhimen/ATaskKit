@@ -21,20 +21,16 @@ import java.util.concurrent.ConcurrentHashMap
 @OApiCall_BindViewLifecycle
 @OApiCall_BindLifecycle
 @OApiInit_ByLazy
-class TaskKAnimator : BaseTaskKWakeBefDestroy() {
-    private val _viewAnims: ConcurrentHashMap<View, Animator> = ConcurrentHashMap()
+open class TaskKAnimator : BaseTaskKWakeBefDestroy() {
+    protected val _viewAnims: ConcurrentHashMap<View, Animator> = ConcurrentHashMap()
 
-    ///////////////////////////////////////////////////////////////////
-
-    fun add(view: View, animator: Animator) {
+    open fun add(view: View, animator: Animator) {
         _viewAnims[view] = animator
     }
 
-    fun remove(view: View){
+    open fun remove(view: View){
         _viewAnims.remove(view)
     }
-
-    ///////////////////////////////////////////////////////////////////
 
     override fun isActive(): Boolean =
         _viewAnims.isNotEmpty()
